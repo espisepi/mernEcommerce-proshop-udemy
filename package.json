@@ -1,0 +1,13 @@
+{
+  "name": "proshop-backend",
+  "version": "1.0.0",
+  "description": "MERN Backend Proshop",
+  "main": "server.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node backend/server"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
