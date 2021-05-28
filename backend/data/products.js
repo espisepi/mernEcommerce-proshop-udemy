@@ -79,4 +79,5 @@ const products = [
   },
 ]
 
-module.exports = products;
+export default products;
+// module.exports = products; /* When not use type="module" in package.json */

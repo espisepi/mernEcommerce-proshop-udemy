@@ -4,6 +4,7 @@
   "description": "MERN Backend Proshop",
   "main": "server.js",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "start": "node backend/server",
     "server": "nodemon backend/server",
