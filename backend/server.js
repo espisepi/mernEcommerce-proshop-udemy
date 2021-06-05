@@ -3,6 +3,7 @@
 // const products = require('./data/products');
 import express from 'express';
 import dotenv from 'dotenv';
+import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 import connectDB from './config/db.js';
 
 import productRoutes from './routes/productRoutes.js';
@@ -27,6 +28,10 @@ app.use('/api/products', productRoutes);
 //     const product = products.find( p => p._id === req.params.id);
 //     res.json(product);
 // });
+
+/* Middleware, this code always in final */
+app.use(notFound)
+app.use(errorHandler)
 
 const PORT = process.env.PORT || 5000;  // Thanks to dotenv package
 
