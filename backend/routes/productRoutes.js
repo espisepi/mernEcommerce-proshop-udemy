@@ -11,6 +11,10 @@ router.get(
     asyncHandler( async (req, res) => {
         const products = await Product.find({});
 
+        // Forzar un error para ver que aparece le mensaje en el frontend
+        // res.status(401);
+        // throw new Error('Not Authorized');
+
         res.json(products);
     })
 );
