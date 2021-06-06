@@ -12,8 +12,8 @@ import { addToCart } from '../actions/cartAction'
 const CartScreen = ({ match, location, history }) => {
 
     const cart = useSelector(  state => state.cart )
-    const { cartITems } = cart
-    console.log(cartITems)
+    const { cartItems } = cart
+    console.log(cartItems)
 
     const  productId = match.params.id
     const qty = location.search ? Number(location.search.split('=')[1]) : 1     // location.search  =>  ' ?qty=4 '
