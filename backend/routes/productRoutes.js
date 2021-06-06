@@ -1,32 +1,31 @@
 import express from 'express';
 const router = express.Router();
-import asyncHandler from 'express-async-handler';
-import Product from '../models/productModel.js';
+import {getProducts, getProductById} from '../controllers/productController.js'
 
-// @desc    Fetch all products
-// @route   GET /api/products
-// @access Public
+router.route('/').get(getProducts)
+router.route('/:id').get(getProductById)
+
+
+
+export default router;
+
+
+
+/** Old way
+ 
 router.get(
     '/',
     asyncHandler( async (req, res) => {
         const products = await Product.find({});
-
-        // Forzar un error para ver que aparece le mensaje en el frontend
-        // res.status(401);
-        // throw new Error('Not Authorized');
-
         res.json(products);
     })
 );
 
-// @desc    Fetch single products
-// @route   GET /api/products/:id
-// @access Public
+
 router.get(
     '/:id',
     asyncHandler(async (req, res) => {
         const product = await Product.findById(req.params.id);
-
         if ( product ) {
             res.json( product );
         } else {
@@ -35,5 +34,4 @@ router.get(
     })
 );
 
-
-export default router;
+ */
