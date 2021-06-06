@@ -1,6 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap'
+import Message from '../components/Message'
 
-const CartScreen = () => {
+//Redux
+import { useDispatch, useSelector } from 'react-redux'
+import { addToCart } from '../actions/cartAction'
+
+
+
+const CartScreen = ({ match, location, history }) => {
+
+    const cart = useSelector(  state => state.cart )
+    const { cartITems } = cart
+    console.log(cartITems)
+
+    const  productId = match.params.id
+    const qty = location.search ? Number(location.search.split('=')[1]) : 1     // location.search  =>  ' ?qty=4 '
+    
+    const dispatch = useDispatch()
+    useEffect( () => {
+        if (productId) {
+            dispatch( addToCart( productId, qty ) )
+        }
+    }, [dispatch, productId, qty])
+
     return (
         <div>
             Cart
