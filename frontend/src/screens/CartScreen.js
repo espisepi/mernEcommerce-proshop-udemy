@@ -5,7 +5,7 @@ import Message from '../components/Message'
 
 //Redux
 import { useDispatch, useSelector } from 'react-redux'
-import { addToCart } from '../actions/cartAction'
+import { addToCart, removeFromCart } from '../actions/cartAction'
 
 
 
@@ -25,7 +25,7 @@ const CartScreen = ({ match, location, history }) => {
     }, [dispatch, productId, qty])
 
     const removeFromCartHandler = (id) => {
-        console.log('remove')
+        dispatch( removeFromCart(id) )
     }
 
     const checkoutHandler = () => {
